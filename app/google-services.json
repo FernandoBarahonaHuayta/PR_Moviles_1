@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "907349108319",
+    "project_id": "ciberfarma-72301",
+    "storage_bucket": "ciberfarma-72301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907349108319:android:98a9bcb14310449c48ddea",
+        "android_client_info": {
+          "package_name": "com.cibertec.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa0bnyhksxcHrtfO7AF4IWmdcEFuoOJtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907349108319:android:b41ee1a30431395f48ddea",
+        "android_client_info": {
+          "package_name": "com.josue.apppizzeria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa0bnyhksxcHrtfO7AF4IWmdcEFuoOJtw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
