@@ -1,9 +1,12 @@
 package com.josue.apppizzeria
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
@@ -16,6 +19,10 @@ class LoginActivity : AppCompatActivity() {
     //Valores globales
     private lateinit var txtCorreo:TextInputLayout
     private lateinit var txtPass:TextInputLayout
+    //Valores para crear cuenta
+
+    private lateinit var correo:String
+    private lateinit var contra:String
     //Firebase
     private lateinit var auth:FirebaseAuth
 
@@ -44,13 +51,12 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
     }
 
+    @SuppressLint("SuspiciousIndentation")
     fun login(view: View)
     {
-        var email = txtCorreo.editText?.text.toString()
-        var password = txtPass.editText?.text.toString()
-        // Toast.makeText(this,"$email - $password",Toast.LENGTH_SHORT).show()
-
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+        if(!validar())
+            return
+            auth.signInWithEmailAndPassword(correo,contra).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
 
                 Log.d(TAG, "signInWithEmail:success")
@@ -64,8 +70,53 @@ class LoginActivity : AppCompatActivity() {
 
             }
         }
+
+    }
+
+    fun sigoup(view: View)
+    {
+        if(!validar())
+            return
+        auth.createUserWithEmailAndPassword(correo,contra).addOnCompleteListener(this)
+        {
+            task ->
+            if(task.isSuccessful)
+            {
+                Toast.makeText(this,"$correo - $contra registrado", Toast.LENGTH_SHORT).show()
+
+            }
+            else
+            {
+                Toast.makeText(baseContext,"Fallo al registar",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 
+    fun validar():Boolean
+    {
+        correo = txtCorreo.editText?.text.toString()
+        if (TextUtils.isEmpty(correo))
+        {
+            txtCorreo.error="Ingresar correo"
+            return false
 
+        }else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches())
+        {
+            txtCorreo.error = "Ingresar en formato de correo"
+        }else
+        {
+            txtCorreo.error=null
+        }
+
+        contra = txtPass.editText?.text.toString()
+        if (TextUtils.isEmpty(contra))
+        {
+            txtPass.error = "Ingresar contraseña"
+            return false
+        }else{
+            txtPass.error=null
+        }
+        return true
+    }
 }
