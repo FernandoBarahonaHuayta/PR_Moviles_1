@@ -53,73 +53,15 @@ class MainActivity : AppCompatActivity() {
         productAdapater = ProductAdapater(this,producList)
         recyclerViewProducts.adapter = productAdapater
 
-        binding.btnTodo.setOnClickListener {
-            clicked = true
-            if (clicked){
-                binding.btnTodo.setBackgroundResource(R.drawable.bg_button_enabled)
-                binding.btnTodo.setTextColor(Color.WHITE)
-                binding.btnPollo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPollo.setTextColor(R.color.dark_gray)
-                binding.btnSnack.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnSnack.setTextColor(R.color.dark_gray)
-                binding.btnPizzas.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPizzas.setTextColor(R.color.dark_gray)
-                binding.recyclerViewProducts.visibility = View.INVISIBLE
-                binding.txtTodo.text ="Todo"
-
-            }
-        }
-        binding.btnPollo.setOnClickListener {
-            clicked = true
-            if (clicked){
-                binding.btnPollo.setBackgroundResource(R.drawable.bg_button_enabled)
-                binding.btnPollo.setTextColor(Color.WHITE)
-                binding.btnTodo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnTodo.setTextColor(R.color.dark_gray)
-                binding.btnSnack.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnSnack.setTextColor(R.color.dark_gray)
-                binding.btnPizzas.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPizzas.setTextColor(R.color.dark_gray)
-                binding.recyclerViewProducts.visibility = View.INVISIBLE
-                binding.txtTodo.text ="Pollos"
-
-            }
-        }
-        binding.btnPizzas.setOnClickListener {
+       binding.btnPizzas.setOnClickListener {
             clicked = true
             if (clicked){
                 binding.btnPizzas.setBackgroundResource(R.drawable.bg_button_enabled)
                 binding.btnPizzas.setTextColor(Color.WHITE)
-                binding.btnPollo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPollo.setTextColor(R.color.dark_gray)
-                binding.btnTodo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnTodo.setTextColor(R.color.dark_gray)
-                binding.btnSnack.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnSnack.setTextColor(R.color.dark_gray)
                 binding.recyclerViewProducts.visibility = View.VISIBLE
                 binding.txtTodo.text ="Pizzas"
 
+                }
             }
         }
-        binding.btnSnack.setOnClickListener {
-            clicked = true
-            if (clicked){
-                binding.btnSnack.setBackgroundResource(R.drawable.bg_button_enabled)
-                binding.btnSnack.setTextColor(Color.WHITE)
-                binding.btnPizzas.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPizzas.setTextColor(R.color.dark_gray)
-                binding.btnPollo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnPollo.setTextColor(R.color.dark_gray)
-                binding.btnTodo.setBackgroundResource(R.drawable.bg_button_disabled)
-                binding.btnTodo.setTextColor(R.color.dark_gray)
-                binding.recyclerViewProducts.visibility = View.INVISIBLE
-                binding.txtTodo.text ="Snacks"
-
-            }
-        }
-
-
-
-
     }
-}
